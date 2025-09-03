@@ -12,7 +12,6 @@ Create a network of machines and enable the possibility to share files between a
 
 ## Realisation
 ### 1. Place all the machines in the same network
-
 In Oracle VirtualBox it is done by choosing the Internal Network in the Network Adapter options. Naming a new network "labnet" and assigning all machines to it. The network settings should be same for 3 VMs and look as follows:
 
 <img width="371" height="263" alt="image" src="https://github.com/user-attachments/assets/78b79dbb-e66e-43cd-b617-111d7b14bbc5" />
@@ -20,7 +19,6 @@ In Oracle VirtualBox it is done by choosing the Internal Network in the Network 
 With this done, VMs are now within the same network.
 
 ### 2. Assign static IPv4 addresses 
-
 #### Ubuntu Server
 Navigate to Netplan configuration:
 
@@ -64,7 +62,14 @@ Go to its settings and to IPv4 tab. Change method to Manual and assign needed ad
 Apply changes. As previously, getaway is not used.
 
 #### Windows 10
+Go to Network & Internet - Change Adapter Settings. In the list of properties choose IPv4. In the drop-down menu, change Automatic (DHCP) to Manual. It should be changed to the following:
+
+<img width="400" height="454" alt="image" src="https://github.com/user-attachments/assets/c4f765e0-c78c-4658-a413-519b2376f7b2" />
+
+Save changes.
 
 ### 3. Ensure bidirectional connection between clients and server
+To check if there is visibility between the machines, ping will be used.
+
 ### 4. Install and configure Samba on Ubuntu Server machine
 ### 5. Test the operability
