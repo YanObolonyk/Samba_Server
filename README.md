@@ -72,7 +72,7 @@ Save changes.
 To check whether both the client and server sides are visible, the ping command will be used.
 
 #### Important note
-If you have a firewall set up on any of the machines, ensure firtsly that in/outbound traffic for ping command and Samba service is allowed. If firewall is not used, [skip this step]().
+If you have a firewall set up on any of the machines, ensure firtsly that in/outbound traffic for ping command and Samba service is allowed. If firewall is not used, [skip this step](https://github.com/YanObolonyk/Samba_Server/blob/main/README.md#windows-10-client-to-server-and-back).
 
 #### Ubuntu
 Check the firewall status:
@@ -108,3 +108,68 @@ Successful ping FROM server:
 
 ### 4. Install and configure Samba on Ubuntu Server machine
 ### 5. Test the operability
+#### Create a test file in shared folder
+Go to share folder:
+
+cd /srv/samba/share
+
+Create a test file:
+
+sudo touch test.txt
+
+Edit it to add some contents:
+
+sudo nano test.txt
+
+<img width="147" height="53" alt="image" src="https://github.com/user-attachments/assets/5f126e0d-70c5-487a-990f-a0c602a4e54e" />
+
+Save the changes and exit.
+
+#### Connect from Windows machine
+Right-click on This PC and choose Add network location. Then choose to add the address and write the IP address of the server and the name of the shared folder:
+
+<img width="304" height="53" alt="image" src="https://github.com/user-attachments/assets/e5190aed-13b7-49c7-9c4f-8f329474724b" />
+
+Enter the login and password created for the Samba user. After that choose the location name or leave the defaults.
+
+<img width="295" height="124" alt="image" src="https://github.com/user-attachments/assets/893c55fe-3ebe-41b3-89d8-a9c15225ec75" />
+
+Now the location is added and the test file created on server is there. Checking the contents:
+
+<img width="188" height="96" alt="image" src="https://github.com/user-attachments/assets/3b4bee6a-f16a-43b8-a626-b5248aec3489" />
+
+#### Connect from Linux machine
+In file explorer click:
+
+<img width="203" height="94" alt="image" src="https://github.com/user-attachments/assets/315a13f4-14df-473a-a8db-af738d354ce0" />
+
+In search field write the address of the server in the following form:
+
+smb://192.168.10.10/share
+
+<img width="511" height="86" alt="image" src="https://github.com/user-attachments/assets/b8b02176-e5dc-4076-9618-2f0a2bbd8764" />
+
+Enter the credentials:
+
+<img width="514" height="492" alt="image" src="https://github.com/user-attachments/assets/64ef0d0a-03e3-4530-adb0-7821e043a104" />
+
+Connect. The location is added, with the test file inside:
+
+<img width="903" height="553" alt="image" src="https://github.com/user-attachments/assets/4d018137-68a8-4168-9a1c-58dabd81a178" />
+
+Checking the contents:
+
+<img width="492" height="129" alt="image" src="https://github.com/user-attachments/assets/0a5af93f-5040-437f-9328-4ab973182794" />
+
+## Results
+During the deployment of this laboratory environment, three virtual machines were created in VirtualBox and connected to a shared internal network. Static IP addresses were configured, a Samba server was installed and configured, a separate user account was created, and a shared directory was organized for access from both Windows and Linux clients. To verify functionality, the connections were tested, access rights were configured, and configuration errors were eliminated (in particular, those related to YAML syntax in Netplan, firewall operation, and Samba binding to the network interface).
+
+The main difficulties that could be encountered during setting the server up were:
+- errors in formatting the Netplan configuration, which blocked the network from coming up;
+- incorrect binding of the Samba service to the required interface (the service was running but not listening to external connections);
+- configuring access rights and creating Samba accounts to avoid “Access denied” when connecting from Windows;
+- possible firewall restrictions and blocking of ports 445/139.
+
+The result is a working environment with the ability to exchange files between Linux and Windows. Requires basic skills in system administration, working with network services, and troubleshooting.
+
+
