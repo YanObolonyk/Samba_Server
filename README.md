@@ -1,4 +1,4 @@
-# Samba_Server <em>(Currently being processed)</em>
+# Samba_Server <em>(Step 4 + formatting + mb change ukr)</em>
 Showcase project for creating and configuring a Samba server for file transfer.
 
 ## Objective of the project
