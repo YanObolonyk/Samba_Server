@@ -71,6 +71,23 @@ Save changes.
 ### 3. Ensure bidirectional connection between clients and server
 To check whether both the client and server sides are visible, the ping command will be used.
 
+#### Important note
+If you have a firewall set up on any of the machines, ensure firtsly that in/outbound traffic for ping command and Samba service is allowed. If firewall is not used, [skip this step]().
+
+#### Ubuntu
+Check the firewall status:
+
+sudo ufw status
+
+If enabled, add:
+
+sudo ufw allow samba
+
+Recheck the allowed services.
+
+#### Windows
+For ping to work, go to Windows firewall settings. Choose Inbound Rules. Find and ensure to enable File and Printer Sharing (Echo Request - ICMPv4-In) for the Private profile (or for the one where the network is).
+
 #### Windows 10 client to server and back
 Successful ping TO server:
 
