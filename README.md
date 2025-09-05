@@ -69,7 +69,25 @@ Go to Network & Internet - Change Adapter Settings. In the list of properties ch
 Save changes.
 
 ### 3. Ensure bidirectional connection between clients and server
-To check if there is visibility between the machines, ping will be used.
+To check whether both the client and server sides are visible, the ping command will be used.
+
+#### Windows 10 client to server and back
+Successful ping TO server:
+
+<img width="574" height="194" alt="image" src="https://github.com/user-attachments/assets/84ee8af8-400a-43ed-b832-08b1e9cc8588" />
+
+Successful ping FROM server:
+
+<img width="544" height="259" alt="image" src="https://github.com/user-attachments/assets/9557b6d8-7a13-4767-8d1d-72eb0872b69d" />
+
+#### Ubuntu Desktop client to server and back
+Successful ping TO server:
+
+<img width="663" height="317" alt="image" src="https://github.com/user-attachments/assets/e19f9d08-10f3-41b3-859b-a91bee8cf6ef" />
+
+Successful ping FROM server:
+
+<img width="520" height="220" alt="image" src="https://github.com/user-attachments/assets/e2902d39-2866-4753-94f3-5d9370c4bdcc" />
 
 ### 4. Install and configure Samba on Ubuntu Server machine
 ### 5. Test the operability
